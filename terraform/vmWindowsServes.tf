@@ -39,9 +39,6 @@ resource "azurerm_public_ip" "ippublico" {
   idle_timeout_in_minutes = 30
   domain_name_label       = "vmwin2k19"
 
-  depends_on = [
-    azurerm_public_ip.ippublico
-  ]
 }
 
 resource "azurerm_network_interface" "nic" {
@@ -136,6 +133,9 @@ resource "azurerm_virtual_machine_extension" "vmext" {
     }
    SETTINGS
 
+  depends_on = [
+    azurerm_public_ip.ippublico
+  ]
 }
 
 output "public_ip_address_id" {
