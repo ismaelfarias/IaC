@@ -137,8 +137,3 @@ resource "azurerm_virtual_machine_extension" "vmext" {
     azurerm_public_ip.ippublico
   ]
 }
-
-output "public_ip_address_id" {
-  value = azurerm_public_ip.ippublico.*.ip_address
-
-}
